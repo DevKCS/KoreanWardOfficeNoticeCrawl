@@ -2406,7 +2406,7 @@ async function getYeonchoenAnno(keyword, count) {
     };
 }
 /**
- * 
+ * 경기도 가평군 공지
  * @param {String} keyword 
  * @param {Number} count 
  * @returns {Array}
@@ -3503,7 +3503,7 @@ async function getJinjuAnno(keyword, count) {
     };
 }
 /**
- * 경상남도 통해시 공지
+ * 경상남도 통영시 공지
  * @param {String} keyword 
  * @param {Number} count 
  * @returns {Array}
@@ -5523,6 +5523,10 @@ async function getSeogwipoAnno(keyword, count) {
         return []
     };
 }
+
+
+
+
 const koreaMetroAnno = {
     "Seoul": {
         Seoul: getSeoulAnno,
@@ -5546,7 +5550,7 @@ const koreaMetroAnno = {
         Songpa: getSongpaAnno,
         Yangcheon: getYangcheonAnno,
         Ydp: getYdpAnno,
-        Yongsan: getYangcheonAnno,
+        Yongsan: getYongsanAnno,
         Ep: getEpAnno,
         Jongno: getJongnoAnno,
         Junggu: getJungguAnno,
@@ -5727,6 +5731,162 @@ const koreaMetroAnno = {
     }
 }
 
+let e2k = {
+    Seoul: "서울특별시",
+    Gangnam: "강남구",
+    Gangdong: "강동구",
+    Gangseo: "강서구",
+    Gangbuk: "강북구",
+    Gwanak: "관악구",
+    Gwangjin: "광진구",
+    Guro: "구로구",
+    Geumcheon: "금천구",
+    Nowon: "노원구",
+    Dobong: "도봉구",
+    Ddm: "동대문구",
+    Dongjak: "동작구",
+    Mapo: "마포구",
+    Sdm: "서대문구",
+    Seocho: "서초구",
+    Sd: "성동구",
+    Sb: "성북구",
+    Songpa: "송파구",
+    Yangcheon: "양천구",
+    Ydp: "영등포구",
+    Yongsan: "양천구",
+    Ep: "은평구",
+    Jongno: "종로구",
+    Junggu: "중구",
+    Jungnang: "중랑구",
+    Goyang: "고양시",
+    DyguAnno: "덕양구",
+    Ilsegu: "일산동구",
+    Ilswgu: "일산서구",
+    Gccity: "과천시",
+    Gm: "광명시",
+    Gjcity: "광주시",
+    Guri: "구리시",
+    Gunpo: "군포시",
+    Gimpo: "김포시",
+    Nyj: "남양주시",
+    Ddc: "동두천시",
+    Bucheon: "부천시",
+    Seongnam: "성남시",
+    Sujeonggu: "수정구",
+    Jungwongu: "중원구",
+    Bundanggu: "분당구",
+    Suwon: "수원시",
+    Jangan: "장안구",
+    Ksun: "권선구",
+    Paldal: "팔달구",
+    Yt: "영통구",
+    Siheung: "시흥시",
+    Ansan: "안산시",
+    Sangnokgu: "상록구",
+    Danwongu: "단원구",
+    Anseong: "안성시",
+    Anyang: "안양시",
+    Manan: "만안구",
+    Dongan: "동안구",
+    Yangju: "양주시",
+    Yeoju: "여주시",
+    Osan: "오산시",
+    Yongin: "용인시",
+    Cheoingu: "처인구",
+    Giheunggu: "기흥구",
+    Sujigu: "수지구",
+    Uiwang: "의왕시",
+    Ui4u: "의정부시",
+    Icheon: "이천시",
+    Paju: "파주시",
+    Pyeongtaek: "평택시",
+    Pocheon: "포천시",
+    Hanam: "하남시",
+    Hscity: "화성시",
+    Yeoncheon: "연천군",
+    Gp: "가평군",
+    Yp21: "양평군",
+    Incheon: "인천광역시",
+    Gyeyang: "계양구",
+    Yeonsu: "연수구",
+    Namdong: "남동구",
+    Donggu: "동구",
+    Michuhol: "미추홀구",
+    Icbp: "부평구",
+    Seogu: "서구",
+    Icjg: "중구",
+    Ganghwa: "강화군",
+    Ongjin: "웅진군",
+    Gwd: "강원도",
+    Gangneung: "강릉시",
+    Dh: "동해시",
+    Samcheok: "삼척시",
+    Sokcho: "속초시",
+    Wonju: "원주시",
+    Gb: "경상북도",
+    Pohang: "포항시",
+    PohangNamgu: "포항 남구",
+    PohangBukgu: "포항 북구",
+    Gyeongju: "경주시",
+    Gimcheon: "김천시",
+    Andong: "안동시",
+    Gyeongnam: "경상남도",
+    Changwon: "창원시",
+    Uichang: "의창구",
+    Sungsan: "성산구",
+    Masanhappo: "마산합포구",
+    Masanhwewon: "마산회원구",
+    Jinhae: "진해구",
+    Jinju: "진주시",
+    Tongyeong: "통영시",
+    Busan: "부산광역시",
+    Gijang: "기장군",
+    Dongnae: "동래구",
+    Busanjin: "부산진구",
+    Bsbukgu: "부산북구",
+    Haeundae: "해운대구",
+    Daegu: "대구광역시",
+    Junggu: "중구",
+    Namgu: "남구",
+    Bukgu: "북구",
+    Suseong: "수성구",
+    Dalseo: "달서구",
+    Dalseong: "달성구",
+    Ulsan: "울산광역시",
+    Chungbuk: "충청북도",
+    Cheongju: "청주시",
+    Sangdang: "상당구",
+    Heungdeok: "흥덕구",
+    Seowon: "서원구",
+    Cheongwon: "청원구",
+    Chungju: "충주시",
+    Jecheon: "제천시",
+    Chungnam: "충청남도",
+    Cheonan: "천안",
+    Dongna: "동남구",
+    Seobuk: "서북구",
+    Asan: "아산시",
+    Gongju: "공주시",
+    Nonsan: "논산시",
+    Daejeon: "대전광역시",
+    Yuseong: "유성구",
+    Daedeok: "대덕구",
+    Sejong: "세종특별자치시",
+    Jeonbuk: "전라북도",
+    Jeonju: "전주시",
+    Wansan: "완산군",
+    Deokjingu: "덕진군",
+    Iksan: "익산시",
+    Gunsan: "군산시",
+    Jeonnam: "전라남도",
+    Mokpo: "목포시",
+    Yeosu: "여수시",
+    Suncheon: "순천시",
+    Gwangju: "광주광역시",
+    Gwangsan: "광산구",
+    Jeju: "제주특별자치도",
+    Seogwipo: "서귀포시"
+}
 import express, { json } from 'express';
 import cors from 'cors'
 import bodyParser from "body-parser";
@@ -5736,144 +5896,263 @@ app.use(bodyParser.json())
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-
 app.get('/getAnno', async (req, res) => {
     const { title, count } = req.query
-    if (req.query.location == "서울") {
+    if (req.query.location == "서울특별시") {
         let promises = []
-        Object.keys(koreaMetroAnno.Seoul).forEach((e) => {
-            promises.push(koreaMetroAnno.Seoul[e](title, count))
+        let i = Object.keys(koreaMetroAnno.Seoul).length
+        let m = 0;
+        Object.keys(koreaMetroAnno.Seoul).forEach(async (e) => {
+            let loc = e2k[e]
+            let dat = await koreaMetroAnno.Seoul[e](title, count)
+            promises.push({location: loc, data: dat})
+            m++;
+            if( i <= m) {
+                const filteredArr = promises.filter((obj) => obj.data.length > 0);
+                res.json(filteredArr)
+            }
         })
-        let result = await Promise.all(promises)
-        result = result.reduce((acc, val) => acc.concat(val), [])
-        res.json(result)
     }
-    if (req.query.location == "경기") {
+    if (req.query.location == "경기도") {
         let promises = []
-        Object.keys(koreaMetroAnno.Gyeonggido).forEach((e) => {
-            promises.push(koreaMetroAnno.Gyeonggido[e](title, count))
+        let i = Object.keys(koreaMetroAnno.Gyeonggido).length
+        let m = 0;
+        Object.keys(koreaMetroAnno.Gyeonggido).forEach(async (e) => {
+            let loc = e2k[e]
+            let dat = await koreaMetroAnno.Gyeonggido[e](title, count)
+            promises.push({location: loc, data: dat})
+            m++;
+            if( i <= m) {
+                const filteredArr = promises.filter((obj) => obj.data.length > 0);
+                res.json(filteredArr)
+            }
         })
-        let result = await Promise.all(promises)
-        result = result.reduce((acc, val) => acc.concat(val), [])
-        res.json(result)
     }
-    if (req.query.location == "인천") {
+    if (req.query.location == "인천광역시") {
         let promises = []
-        Object.keys(koreaMetroAnno.Incheon).forEach((e) => {
-            promises.push(koreaMetroAnno.Incheon[e](title, count))
+        let i = Object.keys(koreaMetroAnno.Incheon).length
+        let m = 0;
+        Object.keys(koreaMetroAnno.Incheon).forEach(async (e) => {
+            let loc = e2k[e]
+            let dat = await koreaMetroAnno.Incheon[e](title, count)
+            promises.push({location: loc, data: dat})
+            m++;
+            if( i <= m) {
+                const filteredArr = promises.filter((obj) => obj.data.length > 0);
+                res.json(filteredArr)
+            }
         })
-        let result = await Promise.all(promises)
-        result = result.reduce((acc, val) => acc.concat(val), [])
-        res.json(result)
     }
-    if (req.query.location == "강원") {
+    if (req.query.location == "강원도") {
         let promises = []
-        Object.keys(koreaMetroAnno.Gangwon).forEach((e) => {
-            promises.push(koreaMetroAnno.Gangwon[e](title, count))
+        let i = Object.keys(koreaMetroAnno.Gangwon).length
+        let m = 0;
+        Object.keys(koreaMetroAnno.Gangwon).forEach(async (e) => {
+            let loc = e2k[e]
+            let dat = await koreaMetroAnno.Gangwon[e](title, count)
+            promises.push({location: loc, data: dat})
+            m++;
+            if( i <= m) {
+                const filteredArr = promises.filter((obj) => obj.data.length > 0);
+                res.json(filteredArr)
+            }
         })
-        let result = await Promise.all(promises)
-        result = result.reduce((acc, val) => acc.concat(val), [])
-        res.json(result)
     }
-    if (req.query.location == "경상") {
+    if (req.query.location == "경상북도") {
         let promises = []
-        Object.keys(koreaMetroAnno.Gyeongbuk).forEach((e) => {
-            promises.push(koreaMetroAnno.Gyeongbuk[e](title, count))
+        let i = Object.keys(koreaMetroAnno.Gyeongbuk).length
+        let m = 0;
+        Object.keys(koreaMetroAnno.Gyeongbuk).forEach(async (e) => {
+            let loc = e2k[e]
+            let dat = await koreaMetroAnno.Gyeongbuk[e](title, count)
+            promises.push({location: loc, data: dat})
+            m++;
+            if( i <= m) {
+                const filteredArr = promises.filter((obj) => obj.data.length > 0);
+                res.json(filteredArr)
+            }
         })
-        Object.keys(koreaMetroAnno.Gyeongnam).forEach((e) => {
-            promises.push(koreaMetroAnno.Gyeongnam[e](title, count))
-        })
-        let result = await Promise.all(promises)
-        result = result.reduce((acc, val) => acc.concat(val), [])
-        res.json(result)
     }
-    if (req.query.location == "부산") {
+    if (req.query.location == "경상남도") {
         let promises = []
-        Object.keys(koreaMetroAnno.Busan).forEach((e) => {
-            promises.push(koreaMetroAnno.Busan[e](title, count))
+        let i = Object.keys(koreaMetroAnno.Gyeongnam).length
+        let m = 0;
+        Object.keys(koreaMetroAnno.Gyeongnam).forEach(async (e) => {
+            let loc = e2k[e]
+            let dat = await koreaMetroAnno.Gyeongnam[e](title, count)
+            promises.push({location: loc, data: dat})
+            m++;
+            if( i <= m) {
+                const filteredArr = promises.filter((obj) => obj.data.length > 0);
+                res.json(filteredArr)
+            }
         })
-        let result = await Promise.all(promises)
-        result = result.reduce((acc, val) => acc.concat(val), [])
-        res.json(result)
     }
-    if (req.query.location == "대구") {
+    if (req.query.location == "부산광역시") {
         let promises = []
-        Object.keys(koreaMetroAnno.Daegu).forEach((e) => {
-            promises.push(koreaMetroAnno.Daegu[e](title, count))
+        let i = Object.keys(koreaMetroAnno.Busan).length
+        let m = 0;
+        Object.keys(koreaMetroAnno.Busan).forEach(async (e) => {
+            let loc = e2k[e]
+            let dat = await koreaMetroAnno.Busan[e](title, count)
+            promises.push({location: loc, data: dat})
+            m++;
+            if( i <= m) {
+                const filteredArr = promises.filter((obj) => obj.data.length > 0);
+                res.json(filteredArr)
+            }
         })
-        let result = await Promise.all(promises)
-        result = result.reduce((acc, val) => acc.concat(val), [])
-        res.json(result)
     }
-    if (req.query.location == "울산") {
+    if (req.query.location == "대구광역시") {
         let promises = []
-        Object.keys(koreaMetroAnno.Ulsan).forEach((e) => {
-            promises.push(koreaMetroAnno.Ulsan[e](title, count))
+        let i = Object.keys(koreaMetroAnno.Daegu).length
+        let m = 0;
+        Object.keys(koreaMetroAnno.Daegu).forEach(async (e) => {
+            let loc = e2k[e]
+            let dat = await koreaMetroAnno.Daegu[e](title, count)
+            promises.push({location: loc, data: dat})
+            m++;
+            if( i <= m) {
+                const filteredArr = promises.filter((obj) => obj.data.length > 0);
+                res.json(filteredArr)
+            }
         })
-        let result = await Promise.all(promises)
-        result = result.reduce((acc, val) => acc.concat(val), [])
-        res.json(result)
     }
-    if (req.query.location == "충청") {
+    if (req.query.location == "울산광역시") {
         let promises = []
-        Object.keys(koreaMetroAnno.Chungbuk).forEach((e) => {
-            promises.push(koreaMetroAnno.Chungbuk[e](title, count))
+        let i = Object.keys(koreaMetroAnno.Ulsan).length
+        let m = 0;
+        Object.keys(koreaMetroAnno.Ulsan).forEach(async (e) => {
+            let loc = e2k[e]
+            let dat = await koreaMetroAnno.Ulsan[e](title, count)
+            promises.push({location: loc, data: dat})
+            m++;
+            if( i <= m) {
+                const filteredArr = promises.filter((obj) => obj.data.length > 0);
+                res.json(filteredArr)
+            }
         })
-        Object.keys(koreaMetroAnno.Chungnam).forEach((e) => {
-            promises.push(koreaMetroAnno.Chungnam[e](title, count))
-        })
-        let result = await Promise.all(promises)
-        result = result.reduce((acc, val) => acc.concat(val), [])
-        res.json(result)
     }
-    if (req.query.location == "대전") {
+    if (req.query.location == "충청북도") {
         let promises = []
-        Object.keys(koreaMetroAnno.Daejeon).forEach((e) => {
-            promises.push(koreaMetroAnno.Daejeon[e](title, count))
+        let i = Object.keys(koreaMetroAnno.Chungbuk).length
+        let m = 0;
+        Object.keys(koreaMetroAnno.Chungbuk).forEach(async (e) => {
+            let loc = e2k[e]
+            let dat = await koreaMetroAnno.Chungbuk[e](title, count)
+            promises.push({location: loc, data: dat})
+            m++;
+            if( i <= m) {
+                const filteredArr = promises.filter((obj) => obj.data.length > 0);
+                res.json(filteredArr)
+            }
         })
-        let result = await Promise.all(promises)
-        result = result.reduce((acc, val) => acc.concat(val), [])
-        res.json(result)
     }
-    if (req.query.location == "세종") {
+    if (req.query.location == "충청남도") {
         let promises = []
-        Object.keys(koreaMetroAnno.Sejong).forEach((e) => {
-            promises.push(koreaMetroAnno.Sejong[e](title, count))
+        let i = Object.keys(koreaMetroAnno.Chungnam).length
+        let m = 0;
+        Object.keys(koreaMetroAnno.Chungnam).forEach(async (e) => {
+            let loc = e2k[e]
+            let dat = await koreaMetroAnno.Chungnam[e](title, count)
+            promises.push({location: loc, data: dat})
+            m++;
+            if( i <= m) {
+                const filteredArr = promises.filter((obj) => obj.data.length > 0);
+                res.json(filteredArr)
+            }
         })
-        let result = await Promise.all(promises)
-        result = result.reduce((acc, val) => acc.concat(val), [])
-        res.json(result)
     }
-    if (req.query.location == "전라") {
+    if (req.query.location == "대전광역시") {
         let promises = []
-        Object.keys(koreaMetroAnno.Jeonbuk).forEach((e) => {
-            promises.push(koreaMetroAnno.Jeonbuk[e](title, count))
+        let i = Object.keys(koreaMetroAnno.Daejeon).length
+        let m = 0;
+        Object.keys(koreaMetroAnno.Daejeon).forEach(async (e) => {
+            let loc = e2k[e]
+            let dat = await koreaMetroAnno.Daejeon[e](title, count)
+            promises.push({location: loc, data: dat})
+            m++;
+            if( i <= m) {
+                const filteredArr = promises.filter((obj) => obj.data.length > 0);
+                res.json(filteredArr)
+            }
         })
-        Object.keys(koreaMetroAnno.Jeonnam).forEach((e) => {
-            promises.push(koreaMetroAnno.Jeonnam[e](title, count))
-        })
-        let result = await Promise.all(promises)
-        result = result.reduce((acc, val) => acc.concat(val), [])
-        res.json(result)
     }
-    if (req.query.location == "광주") {
+    if (req.query.location == "세종특별자치시") {
         let promises = []
-        Object.keys(koreaMetroAnno.Gwangju).forEach((e) => {
-            promises.push(koreaMetroAnno.Gwangju[e](title, count))
+        let i = Object.keys(koreaMetroAnno.Sejong).length
+        let m = 0;
+        Object.keys(koreaMetroAnno.Sejong).forEach(async (e) => {
+            let loc = e2k[e]
+            let dat = await koreaMetroAnno.Sejong[e](title, count)
+            promises.push({location: loc, data: dat})
+            m++;
+            if( i <= m) {
+                const filteredArr = promises.filter((obj) => obj.data.length > 0);
+                res.json(filteredArr)
+            }
         })
-        let result = await Promise.all(promises)
-        result = result.reduce((acc, val) => acc.concat(val), [])
-        res.json(result)
     }
-    if (req.query.location == "제주") {
+    if (req.query.location == "전라북도") {
         let promises = []
-        Object.keys(koreaMetroAnno.Jeju).forEach((e) => {
-            promises.push(koreaMetroAnno.Jeju[e](title, count))
+        let i = Object.keys(koreaMetroAnno.Jeonbuk).length
+        let m = 0;
+        Object.keys(koreaMetroAnno.Jeonbuk).forEach(async (e) => {
+            let loc = e2k[e]
+            let dat = await koreaMetroAnno.Jeonbuk[e](title, count)
+            promises.push({location: loc, data: dat})
+            m++;
+            if( i <= m) {
+                const filteredArr = promises.filter((obj) => obj.data.length > 0);
+                res.json(filteredArr)
+            }
         })
-        let result = await Promise.all(promises)
-        result = result.reduce((acc, val) => acc.concat(val), [])
-        res.json(result)
+    }
+    if (req.query.location == "전라남도") {
+        let promises = []
+        let i = Object.keys(koreaMetroAnno.Jeonnam).length
+        let m = 0;
+        Object.keys(koreaMetroAnno.Jeonnam).forEach(async (e) => {
+            let loc = e2k[e]
+            let dat = await koreaMetroAnno.Jeonnam[e](title, count)
+            promises.push({location: loc, data: dat})
+            m++;
+            if( i <= m) {
+                const filteredArr = promises.filter((obj) => obj.data.length > 0);
+                res.json(filteredArr)
+            }
+        })
+    }
+    if (req.query.location == "광주광역시") {
+        let promises = []
+        let i = Object.keys(koreaMetroAnno.Gwangju).length
+        let m = 0;
+        Object.keys(koreaMetroAnno.Gwangju).forEach(async (e) => {
+            let loc = e2k[e]
+            let dat = await koreaMetroAnno.Gwangju[e](title, count)
+            promises.push({location: loc, data: dat})
+            m++;
+            if( i <= m) {
+                const filteredArr = promises.filter((obj) => obj.data.length > 0);
+                res.json(filteredArr)
+            }
+        })
+    }
+    if (req.query.location == "제주특별자치도") {
+        let promises = []
+        let i = Object.keys(koreaMetroAnno.Jeju).length
+        let m = 0;
+        Object.keys(koreaMetroAnno.Jeju).forEach(async (e) => {
+            let loc = e2k[e]
+            let dat = await koreaMetroAnno.Jeju[e](title, count)
+            promises.push({location: loc, data: dat})
+            m++;
+            if( i <= m) {
+                const filteredArr = promises.filter((obj) => obj.data.length > 0);
+                res.json(filteredArr)
+            }
+        })
     }
 })
 
-app.listen(5000)
+app.listen(5482)
