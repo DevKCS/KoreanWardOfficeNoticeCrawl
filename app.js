@@ -683,7 +683,7 @@ async function getYdpAnno(keyword, count) {
                 const selectors = Array.from($(`div.p-warp.bbs.bbs__list > table > tbody > tr > td.p-subject > a`));
                 selectors.forEach(selec => {
                     res.push({
-                        link: `${selec.attribs.href}`,
+                        link: `https://www.ydp.go.kr/www${selec.attribs.href.substring(1)}`,
                         title: $(selec).text().replaceAll("\t", "").replaceAll("\r", "").replaceAll("\n", "").trim().trim()
                     })
                 })
@@ -5753,7 +5753,7 @@ let e2k = {
     Songpa: "송파구",
     Yangcheon: "양천구",
     Ydp: "영등포구",
-    Yongsan: "양천구",
+    Yongsan: "용산구",
     Ep: "은평구",
     Jongno: "종로구",
     Junggu: "중구",
@@ -6155,4 +6155,4 @@ app.get('/getAnno', async (req, res) => {
     }
 })
 
-app.listen(5482)
+app.listen()
